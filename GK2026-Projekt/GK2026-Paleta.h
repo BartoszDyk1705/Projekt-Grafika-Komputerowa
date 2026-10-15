@@ -28,4 +28,15 @@ void narysujPalete16(int px, int py, SDL_Color pal16[]);
 void paletaNarzucona4K();
 void paletaNarzucona4S();
 
+int kwantyzujBayer(double wartosc, int maxPoziom, int x, int y);
+Uint8 z24Kdo4S_Bayer(SDL_Color kolor, int x, int y);
+Uint8 z24Kdo4K_Bayer(SDL_Color kolor, int x, int y);
+Uint8 z24Kdo8K_Bayer(SDL_Color kolor, int x, int y);
+Uint8 z24Kdo3S_Bayer(SDL_Color kolor, int x, int y);
+SDL_Color z3Sdo24K(Uint8 szary3bit);
+
+void paletaNarzucona4SDithering();
+void paletaNarzucona4KDithering();
+void paletaNarzucona8KDithering();
+
 #endif // GK2026_PALETA_H_INCLUDED

@@ -44,22 +44,19 @@ void Funkcja6() {
 
 void Funkcja7() {
 
-    //...
-
+    paletaNarzucona4SDithering();
     SDL_UpdateWindowSurface(window);
 }
 
 void Funkcja8() {
 
-    //...
-
+    paletaNarzucona4KDithering();
     SDL_UpdateWindowSurface(window);
 }
 
 void Funkcja9() {
 
-    //...
-
+    paletaNarzucona8KDithering();
     SDL_UpdateWindowSurface(window);
 }
 
