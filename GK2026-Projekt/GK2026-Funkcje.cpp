@@ -18,7 +18,7 @@ void Funkcja2() {
     SDL_UpdateWindowSurface(window);
 }
 
-void Funkcja3() { //g
+void Funkcja3() {
 
     narzuconaV3();
     SDL_UpdateWindowSurface(window);
@@ -26,22 +26,19 @@ void Funkcja3() { //g
 
 void Funkcja4() {
 
-    //...
-
+    paletaNarzucona();
     SDL_UpdateWindowSurface(window);
 }
 
 void Funkcja5() {
 
-    //...
-
+    paletaNarzucona4K();
     SDL_UpdateWindowSurface(window);
 }
 
 void Funkcja6() {
 
-    //...
-
+    paletaNarzucona4S();
     SDL_UpdateWindowSurface(window);
 }
 
