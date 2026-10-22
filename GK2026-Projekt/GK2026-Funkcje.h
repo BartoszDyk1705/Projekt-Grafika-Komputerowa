@@ -15,6 +15,12 @@ void Funkcja6();
 void Funkcja7();
 void Funkcja8();
 void Funkcja9();
+void Funkcja0();
+void Funkcja10();
+void Funkcja11();
+void Funkcja12();
+void Funkcja13();
+void Funkcja14();
 
 void setPixel(int x, int y, Uint8 R, Uint8 G, Uint8 B);
 SDL_Color getPixel(int x, int y);

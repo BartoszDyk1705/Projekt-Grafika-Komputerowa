@@ -3,10 +3,12 @@
 #include "GK2026-Zmienne.h"
 #include "GK2026-Funkcje.h"
 
+#include <iostream>
+using namespace std;
+
 void narzuconaV1() {
     SDL_Color kolor;
     int R, G, B;
-    int kolor8bit;
     int nowyR, nowyG, nowyB;
 
     for(int y=0; y<wysokosc/2; y++) {
@@ -32,7 +34,6 @@ void narzuconaV1() {
 void narzuconaV2(){
     SDL_Color kolor;
     int R, G, B;
-    int kolor8bit;
     int nowyR, nowyG, nowyB;
 
     for (int y=0; y<wysokosc/2; y++) {
@@ -58,7 +59,6 @@ void narzuconaV2(){
 void narzuconaV3(){
     SDL_Color kolor;
     int R, G, B;
-    int kolor8bit;
     int nowyR, nowyG, nowyB;
 
     for (int y=0; y<wysokosc/2; y++) {
@@ -123,8 +123,8 @@ SDL_Color z8Kdo24K(Uint8 kolor8bit) {
 }
 
 void paletaNarzucona() {
-    Uint8 kolor8bit, szary8bit;
-    SDL_Color kolor, nowyKolor, nowySzary;
+    Uint8 kolor8bit;
+    SDL_Color kolor, nowyKolor;
 
     for (int y=0; y<wysokosc/2; y++){
         for (int x=0; x<szerokosc/2; x++){
@@ -391,5 +391,94 @@ void paletaNarzucona8KDithering() {
         paleta8k[k] = z8Kdo24K(k);
     }
     narysujPalete(0, 210, paleta8k);
+    SDL_UpdateWindowSurface(window);
+}
+
+// ==================== PALETA WYKRYTA ====================
+// Paleta dedykowana konkretnemu obrazkowi: zbieramy unikalne kolory z ekranu
+// (lewa gorna cwiartka) do globalnej tablicy paleta8[] i licznika ileKolorow.
+
+// Porownanie dwoch kolorow skladowa po skladowej (SDL_Color nie ma operatora ==)
+bool porownajKolory(SDL_Color kolor1, SDL_Color kolor2) {
+    if (kolor1.r != kolor2.r)
+        return false;
+    if (kolor1.g != kolor2.g)
+        return false;
+    if (kolor1.b != kolor2.b)
+        return false;
+
+    return true;
+}
+
+// Dodanie nowego koloru do palety; zwraca jego indeks.
+// Kolory o indeksie < 256 sa wypisywane na konsole.
+int dodajKolor(SDL_Color kolor) {
+    int aktualnyKolor = ileKolorow;
+    paleta8[aktualnyKolor] = kolor;
+    if (ileKolorow < 256) {
+        cout << aktualnyKolor << ": [";
+        cout << (int)kolor.r << "," << (int)kolor.g << "," << (int)kolor.b;
+        cout << "]" << endl;
+    }
+    ileKolorow++;
+    return aktualnyKolor;
+}
+
+// Szukanie koloru na liscie; jezeli go nie ma - dodanie go
+int sprawdzKolor(SDL_Color kolor) {
+    if (ileKolorow > 0) {
+        for (int k = 0; k < ileKolorow; k++) {
+            if (porownajKolory(kolor, paleta8[k]))
+                return k;
+        }
+    }
+    return dodajKolor(kolor);
+}
+
+// Reset palety (licznika oraz zapisanych kolorow)
+void czyscPalete() {
+    for (int k = 0; k < ileKolorow; k++)
+        paleta8[k] = {0, 0, 0};
+    ileKolorow = 0;
+}
+
+// Rysowanie tylko tych kolorow, ktore faktycznie wykryto (maks. 256, ukl. jak w narysujPalete)
+void narysujPaleteWykryta(int px, int py, SDL_Color pal[], int ile) {
+    if (ile > 256) ile = 256;
+    for (int k = 0; k < ile; k++) {
+        int y = k / 32;
+        int x = k % 32;
+        for (int xx = 0; xx < 10; xx++) {
+            for (int yy = 0; yy < 10; yy++) {
+                setPixel(x * 18 + xx + px, y * 18 + yy + py, pal[k].r, pal[k].g, pal[k].b);
+            }
+        }
+    }
+}
+
+// Wykrywanie palety z ograniczeniem do 'limit' kolorow:
+//   limit = 256 (8-bit), 128 (7-bit), 64 (6-bit), 32 (5-bit), 16 (4-bit), 8 (3-bit)
+void paletaWykryta(int limit) {
+    czyscPalete();
+    SDL_Color kolor;
+
+    for (int y = 0; y < wysokosc / 2; y++) {
+        for (int x = 0; x < szerokosc / 2; x++) {
+            kolor = getPixel(x, y);
+            sprawdzKolor(kolor);
+        }
+    }
+
+    cout << endl << "limit kolorow: " << limit << endl;
+    cout << "ile kolorow: " << ileKolorow << endl;
+
+    if (ileKolorow <= limit) {
+        cout << "Paleta spelnia ograniczenia " << limit << " kolorow (indeks na "
+             << (int)ceil(log2((double)(ileKolorow > 1 ? ileKolorow : 2))) << " bitach)" << endl;
+        narysujPaleteWykryta(0, 210, paleta8, ileKolorow);
+    } else {
+        cout << "Paleta przekracza ograniczenie " << limit << " kolorow (o "
+             << ileKolorow - limit << ")" << endl;
+    }
     SDL_UpdateWindowSurface(window);
 }
