@@ -67,12 +67,8 @@ int main(int argc, char* argv[]) {
                     Funkcja8();
                 if (event.key.keysym.sym == SDLK_9)
                     Funkcja9();
-                if (event.key.keysym.sym == SDLK_0) Funkcja0();
-                if (event.key.keysym.sym == SDLK_q) Funkcja10();
-                if (event.key.keysym.sym == SDLK_w) Funkcja11();
-                if (event.key.keysym.sym == SDLK_e) Funkcja12();
-                if (event.key.keysym.sym == SDLK_r) Funkcja13();
-                if (event.key.keysym.sym == SDLK_t) Funkcja14();
+                if (event.key.keysym.sym == SDLK_0)
+                    Funkcja0();
                 if (event.key.keysym.sym == SDLK_a)
                     ladujBMP("obrazek1.bmp", 0, 0);
                 if (event.key.keysym.sym == SDLK_s)

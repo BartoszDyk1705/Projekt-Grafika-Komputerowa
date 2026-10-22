@@ -37,7 +37,6 @@ bool porownajKolory(SDL_Color kolor1, SDL_Color kolor2);
 int  dodajKolor(SDL_Color kolor);
 int  sprawdzKolor(SDL_Color kolor);
 void czyscPalete();
-void paletaWykryta(int limit);   // limit: 256, 128, 64, 32, 16, 8
-void narysujPaleteWykryta(int px, int py, SDL_Color pal[], int ile);
+void paletaWykryta();            // wersja 4-bitowa (maks. 16 kolorow)
 
 #endif // GK2026_PALETA_H_INCLUDED

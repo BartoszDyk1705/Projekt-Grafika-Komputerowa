@@ -415,7 +415,7 @@ bool porownajKolory(SDL_Color kolor1, SDL_Color kolor2) {
 int dodajKolor(SDL_Color kolor) {
     int aktualnyKolor = ileKolorow;
     paleta8[aktualnyKolor] = kolor;
-    if (ileKolorow < 256) {
+    if (ileKolorow < 16) {
         cout << aktualnyKolor << ": [";
         cout << (int)kolor.r << "," << (int)kolor.g << "," << (int)kolor.b;
         cout << "]" << endl;
@@ -442,43 +442,23 @@ void czyscPalete() {
     ileKolorow = 0;
 }
 
-// Rysowanie tylko tych kolorow, ktore faktycznie wykryto (maks. 256, ukl. jak w narysujPalete)
-void narysujPaleteWykryta(int px, int py, SDL_Color pal[], int ile) {
-    if (ile > 256) ile = 256;
-    for (int k = 0; k < ile; k++) {
-        int y = k / 32;
-        int x = k % 32;
-        for (int xx = 0; xx < 10; xx++) {
-            for (int yy = 0; yy < 10; yy++) {
-                setPixel(x * 18 + xx + px, y * 18 + yy + py, pal[k].r, pal[k].g, pal[k].b);
-            }
-        }
-    }
-}
-
-// Wykrywanie palety z ograniczeniem do 'limit' kolorow:
-//   limit = 256 (8-bit), 128 (7-bit), 64 (6-bit), 32 (5-bit), 16 (4-bit), 8 (3-bit)
-void paletaWykryta(int limit) {
+// Wykrywanie palety dla wersji 4-bitowej (maks. 16 kolorow)
+void paletaWykryta() {
     czyscPalete();
-    SDL_Color kolor;
 
     for (int y = 0; y < wysokosc / 2; y++) {
         for (int x = 0; x < szerokosc / 2; x++) {
-            kolor = getPixel(x, y);
-            sprawdzKolor(kolor);
+            sprawdzKolor(getPixel(x, y));
         }
     }
 
-    cout << endl << "limit kolorow: " << limit << endl;
-    cout << "ile kolorow: " << ileKolorow << endl;
+    cout << endl << "ile kolorow: " << ileKolorow << endl;
 
-    if (ileKolorow <= limit) {
-        cout << "Paleta spelnia ograniczenia " << limit << " kolorow (indeks na "
-             << (int)ceil(log2((double)(ileKolorow > 1 ? ileKolorow : 2))) << " bitach)" << endl;
-        narysujPaleteWykryta(0, 210, paleta8, ileKolorow);
+    if (ileKolorow <= 16) {
+        cout << "Paleta spelnia ograniczenia 4-bit / piksel" << endl;
+        narysujPalete16(0, 210, paleta8);   // paleta8[0..15]; nieuzywane wpisy sa czarne
     } else {
-        cout << "Paleta przekracza ograniczenie " << limit << " kolorow (o "
-             << ileKolorow - limit << ")" << endl;
+        cout << "Paleta przekracza ograniczenia 4-bit / piksel" << endl;
     }
     SDL_UpdateWindowSurface(window);
 }

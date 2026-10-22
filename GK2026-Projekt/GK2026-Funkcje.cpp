@@ -61,22 +61,7 @@ void Funkcja9() {
 }
 
 void Funkcja0()  {
-    paletaWykryta(256);
-}
-void Funkcja10() {
-    paletaWykryta(128);
-}
-void Funkcja11() {
-    paletaWykryta(64);
-}
-void Funkcja12() {
-    paletaWykryta(32);
-}
-void Funkcja13() {
-    paletaWykryta(16);
-}
-void Funkcja14() {
-    paletaWykryta(8);
+    paletaWykryta();
 }
 
 

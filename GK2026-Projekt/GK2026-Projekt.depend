@@ -3532,7 +3532,7 @@
 	"GK2026-MedianCut.h"
 	"GK2026-Pliki.h"
 
-1792686506 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-funkcje.h
+1792687599 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-funkcje.h
 	<stdio.h>
 	<math.h>
 	<SDL2/SDL.h>
@@ -3982,7 +3982,7 @@
 1792072012 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-zmienne.h
 	<SDL2/SDL.h>
 
-1792686297 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-paleta.h
+1792687539 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-paleta.h
 	<SDL2/SDL.h>
 
 1792072012 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-mediancut.h
