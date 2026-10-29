@@ -3525,7 +3525,7 @@
 	"GK2026-Zmienne.h"
 	"GK2026-Funkcje.h"
 
-1792081772 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-funkcje.cpp
+1793295018 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-funkcje.cpp
 	"GK2026-Funkcje.h"
 	"GK2026-Zmienne.h"
 	"GK2026-Paleta.h"
@@ -3979,13 +3979,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1792072012 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-zmienne.h
+1793294295 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-zmienne.h
 	<SDL2/SDL.h>
 
 1792687539 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-paleta.h
 	<SDL2/SDL.h>
 
-1792072012 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-mediancut.h
+1793294562 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-mediancut.h
 	<SDL2/SDL.h>
 
 1792072012 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-pliki.h
@@ -3994,12 +3994,16 @@
 	<fstream>
 	<SDL2/SDL.h>
 
-1792072012 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-mediancut.cpp
+1793295303 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-mediancut.cpp
 	"GK2026-MedianCut.h"
 	"GK2026-Zmienne.h"
 	"GK2026-Funkcje.h"
+	"GK2026-Paleta.h"
+	<iostream>
+	<algorithm>
+	<cmath>
 
-1792686245 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-paleta.cpp
+1793294438 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-paleta.cpp
 	"GK2026-Paleta.h"
 	"GK2026-Zmienne.h"
 	"GK2026-Funkcje.h"
@@ -4012,7 +4016,7 @@
 	"GK2026-MedianCut.h"
 	"GK2026-Pliki.h"
 
-1792072012 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-projekt.cpp
+1792687708 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-projekt.cpp
 	"GK2026-Zmienne.h"
 	"GK2026-Funkcje.h"
 	"GK2026-Paleta.h"
@@ -4025,7 +4029,7 @@
 	<math.h>
 	<SDL2/SDL.h>
 
-1792072012 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-zmienne.cpp
+1793294325 source:c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\gk2026-zmienne.cpp
 	"GK2026-Zmienne.h"
 
 1792074284 c:\users\bartek\documents\github\projekt-grafika-komputerowa\gk2026-projekt\sdl2\include\sdl2\sdl.h

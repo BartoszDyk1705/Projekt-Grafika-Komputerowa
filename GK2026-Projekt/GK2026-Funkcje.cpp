@@ -7,61 +7,55 @@
 
 
 void Funkcja1() {
-
     narzuconaV1();
-    SDL_UpdateWindowSurface(window);
-}
-
-void Funkcja2() {
-
     narzuconaV2();
-    SDL_UpdateWindowSurface(window);
-}
-
-void Funkcja3() {
-
     narzuconaV3();
     SDL_UpdateWindowSurface(window);
 }
 
-void Funkcja4() {
-
-    paletaNarzucona();
-    SDL_UpdateWindowSurface(window);
-}
-
-void Funkcja5() {
-
-    paletaNarzucona4K();
-    SDL_UpdateWindowSurface(window);
-}
-
-void Funkcja6() {
-
+void Funkcja2() {
     paletaNarzucona4S();
     SDL_UpdateWindowSurface(window);
 }
 
-void Funkcja7() {
+void Funkcja3() {
+    paletaNarzucona4K();
+    SDL_UpdateWindowSurface(window);
+}
 
+void Funkcja4() {
+    paletaWykryta();
+    SDL_UpdateWindowSurface(window);
+}
+
+void Funkcja5() {
     paletaNarzucona4SDithering();
     SDL_UpdateWindowSurface(window);
 }
 
-void Funkcja8() {
-
+void Funkcja6() {
     paletaNarzucona4KDithering();
     SDL_UpdateWindowSurface(window);
 }
 
-void Funkcja9() {
-
-    paletaNarzucona8KDithering();
+void Funkcja7() {
+    paletaMedianCutBW();
     SDL_UpdateWindowSurface(window);
 }
 
-void Funkcja0()  {
+void Funkcja8() {
+    paletaMedianCut();
+    SDL_UpdateWindowSurface(window);
+}
+
+void Funkcja9() {
+    // wolne pod kolejne zajecia (np. zapis/odczyt plikow)
+    SDL_UpdateWindowSurface(window);
+}
+
+void Funkcja0() {
     paletaWykryta();
+    SDL_UpdateWindowSurface(window);
 }
 
 

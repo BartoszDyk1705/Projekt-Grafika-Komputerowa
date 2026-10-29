@@ -440,6 +440,10 @@ void czyscPalete() {
     for (int k = 0; k < ileKolorow; k++)
         paleta8[k] = {0, 0, 0};
     ileKolorow = 0;
+    for (int k = 0; k < 256; k++) {
+        paleta8s[k] = {0, 0, 0};
+        paleta8k[k] = {0, 0, 0};
+    }
 }
 
 // Wykrywanie palety dla wersji 4-bitowej (maks. 16 kolorow)
