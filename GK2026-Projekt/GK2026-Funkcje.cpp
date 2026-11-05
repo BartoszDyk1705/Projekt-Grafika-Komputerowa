@@ -49,7 +49,16 @@ void Funkcja8() {
 }
 
 void Funkcja9() {
-    // wolne pod kolejne zajecia (np. zapis/odczyt plikow)
+    static Uint8 aktualnyTryb = 1;
+
+    zapiszPlik4(aktualnyTryb);
+    odczytajPlik4();
+
+    aktualnyTryb++;
+    if (aktualnyTryb > 5) {
+        aktualnyTryb = 1;
+    }
+
     SDL_UpdateWindowSurface(window);
 }
 
